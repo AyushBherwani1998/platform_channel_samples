@@ -8,6 +8,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.4.1"
+  battery_native:
+    dependency: "direct main"
+    description:
+      path: "../battery_native/battery_native"
+      relative: true
+    source: path
+    version: "0.0.1"
+  battery_web:
+    dependency: transitive
+    description:
+      path: "../battery_native/battery_web"
+      relative: true
+    source: path
+    version: "0.0.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -36,20 +50,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.14.12"
-  counter_native:
-    dependency: "direct main"
-    description:
-      path: "../counter_native/counter_native"
-      relative: true
-    source: path
-    version: "0.0.1"
-  counter_native_web:
-    dependency: transitive
-    description:
-      path: "../counter_native/counter_native_web"
-      relative: true
-    source: path
-    version: "0.0.1"
   cupertino_icons:
     dependency: "direct main"
     description:

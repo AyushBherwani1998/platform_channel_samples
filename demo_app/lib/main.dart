@@ -1,5 +1,6 @@
+
 import 'package:flutter/material.dart';
-import 'package:counter_native/counter_native.dart';
+import 'package:battery_native/battery_native.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,29 +12,31 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int count = 0;
+  double battery = 0;
 
   @override
   void initState() {
+    getBatteryLevel();
     super.initState();
+  }
+
+  getBatteryLevel(){
+    BatteryPlugin.getBattery.then((value){
+      setState((){
+        battery= value;
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            CounterNative.increment(count)
-                .then((value) => setState(() => count = value));
-          },
-          child: Icon(Icons.add),
-        ),
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Value of Count is : $count'),
+          child: Text('Battery Level is : ${battery * 100}'),
         ),
       ),
     );

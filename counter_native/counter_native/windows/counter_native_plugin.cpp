@@ -62,16 +62,8 @@ void CounterNativePlugin::HandleMethodCall(
   // and
   // https://github.com/flutter/engine/tree/master/shell/platform/glfw/client_wrapper/include/flutter
   // for the relevant Flutter APIs.
-  if (method_call.method_name().compare("getPlatformVersion") == 0) {
-    std::ostringstream version_stream;
-    version_stream << "Windows ";
-    if (IsWindows10OrGreater()) {
-      version_stream << "10+";
-    } else if (IsWindows8OrGreater()) {
-      version_stream << "8";
-    } else if (IsWindows7OrGreater()) {
-      version_stream << "7";
-    }
+  if (method_call.method_name().compare("increment") == 0) {
+    cout << method_call.arguments()
     flutter::EncodableValue response(version_stream.str());
     result->Success(&response);
   } else {

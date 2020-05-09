@@ -23,8 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  counter_native:
-    path: ../counter_native/counter_native
+  battery_native:
+    path: ../battery_native/battery_native
 
 
   # The following adds the Cupertino Icons font to your application.
