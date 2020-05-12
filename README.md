@@ -8,7 +8,7 @@ The battery_native demonstrates how to build battery plugin for android, web and
 The counter_native demonstrates how to build a counter plugin for android, web and desktop. Currrently, the counter_native supports android, and web.
 
 - web_camera_demo
-The web_camera_demo uses dart:html library to access the javascript apis and capture images from webcam on browsers. Currently, exploring the apis to capture images efficiently. 
+The web_camera_demo uses dart:html library to access the javascript apis and capture images from webcam on browsers. Currently, exploring the apis to capture images efficiently. The demo will only run on chrome browser.
 
 <h6> Screens for web_camera_demo </h6>
 
