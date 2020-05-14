@@ -36,6 +36,8 @@ flutter:
         pluginClass: CounterNativePlugin
       web:
         default_package: counter_native_web
+      windows: 
+        pluginClass: CounterNativePlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

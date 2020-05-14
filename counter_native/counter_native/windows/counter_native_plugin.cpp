@@ -56,16 +56,17 @@ CounterNativePlugin::~CounterNativePlugin() {}
 void CounterNativePlugin::HandleMethodCall(
     const flutter::MethodCall<flutter::EncodableValue> &method_call,
     std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
-  // Replace "getPlatformVersion" check with your plugin's method.
-  // See:
-  // https://github.com/flutter/engine/tree/master/shell/platform/common/cpp/client_wrapper/include/flutter
-  // and
-  // https://github.com/flutter/engine/tree/master/shell/platform/glfw/client_wrapper/include/flutter
-  // for the relevant Flutter APIs.
+
   if (method_call.method_name().compare("increment") == 0) {
-    cout << method_call.arguments()
-    flutter::EncodableValue response(version_stream.str());
-    result->Success(&response);
+    if(method_call.arguments()->IsMap()){
+      const flutter::EncodableMap &args = method_call.arguments()->MapValue();
+      const int &value = args.find(flutter::EncodableValue("count"))->second.IntValue();
+      const int &temp =  value + 1;
+      flutter::EncodableValue response(temp);
+      result->Success(&response);
+    }else{
+      result->Error("Bad Arguments","Map Expected");
+    }
   } else {
     result->NotImplemented();
   }
