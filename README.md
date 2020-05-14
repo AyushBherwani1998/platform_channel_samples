@@ -7,7 +7,7 @@ The battery_native demonstrates how to build battery plugin for android, web and
 
 - counter_native
 
-The counter_native demonstrates how to build a counter plugin for android, web and desktop. Currrently, the counter_native supports android, and web.
+The counter_native demonstrates how to build a counter plugin for android, web and desktop.
 
 - web_camera_demo
 
