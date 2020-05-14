@@ -22,7 +22,7 @@ class BatteryPlugin {
     switch (call.method) {
       case 'getBattery':
         html.BatteryManager battery = await html.window.navigator.getBattery();
-        return battery.level;
+        return battery.level * 100;
       default:
         throw PlatformException(
           code: 'Unimplemented',

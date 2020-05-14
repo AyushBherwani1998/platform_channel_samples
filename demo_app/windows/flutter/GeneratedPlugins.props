@@ -3,6 +3,13 @@
   <ImportGroup Label="PropertySheets"/>
   <PropertyGroup Label="UserMacros"/>
   <PropertyGroup/>
-  <ItemDefinitionGroup/>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>flutter\ephemeral\.plugin_symlinks\battery_native\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>battery_native_plugin.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemGroup/>
 </Project>

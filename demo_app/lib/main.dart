@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Battery Level is : ${battery * 100}'),
+          child: Text('Battery Level is : $battery'),
         ),
       ),
     );

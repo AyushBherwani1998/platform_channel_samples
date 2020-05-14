@@ -3,9 +3,6 @@
 // This must be included before many other Windows headers.
 #include <windows.h>
 
-// For getPlatformVersion; remove unless needed for your plugin implementation.
-#include <VersionHelpers.h>
-
 #include <flutter/method_channel.h>
 #include <flutter/plugin_registrar_windows.h>
 #include <flutter/standard_method_codec.h>
@@ -36,7 +33,7 @@ void BatteryNativePlugin::RegisterWithRegistrar(
     flutter::PluginRegistrarWindows *registrar) {
   auto channel =
       std::make_unique<flutter::MethodChannel<flutter::EncodableValue>>(
-          registrar->messenger(), "battery_native",
+          registrar->messenger(), "battery",
           &flutter::StandardMethodCodec::GetInstance());
 
   auto plugin = std::make_unique<BatteryNativePlugin>();
@@ -62,18 +59,14 @@ void BatteryNativePlugin::HandleMethodCall(
   // and
   // https://github.com/flutter/engine/tree/master/shell/platform/glfw/client_wrapper/include/flutter
   // for the relevant Flutter APIs.
-  if (method_call.method_name().compare("getPlatformVersion") == 0) {
-    std::ostringstream version_stream;
-    version_stream << "Windows ";
-    if (IsWindows10OrGreater()) {
-      version_stream << "10+";
-    } else if (IsWindows8OrGreater()) {
-      version_stream << "8";
-    } else if (IsWindows7OrGreater()) {
-      version_stream << "7";
+  if (method_call.method_name().compare("getBattery") == 0) {
+    SYSTEM_POWER_STATUS spsPwr;
+     if( GetSystemPowerStatus(&spsPwr) ) {
+       flutter::EncodableValue response(static_cast<double>(spsPwr.BatteryLifePercent));
+       result->Success(&response);
+    }else{
+      result->Error("Something went wrong", "Not able to get battery percentage");
     }
-    flutter::EncodableValue response(version_stream.str());
-    result->Success(&response);
   } else {
     result->NotImplemented();
   }
