@@ -3,7 +3,7 @@ This repository containts the samples to show how to build plugins for Android, 
 
 - battery_native
 
-The battery_native demonstrates how to build battery plugin for android, web and desktop. Currently, the battery_native is only implemented for web. To test the plugin for web and windows, to test run demo_app.
+The battery_native demonstrates how to build battery plugin for android, web and desktop. Currently, the battery_native is only implemented for web and windows. To test the plugin for web and windows, to test run demo_app.
 
 - counter_native
 
